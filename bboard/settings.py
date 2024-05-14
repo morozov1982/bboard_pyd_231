@@ -113,7 +113,7 @@ AUTH_USER_MODEL = 'main.AdvUser'
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True
 

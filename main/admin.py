@@ -55,9 +55,6 @@ class AdvUserAdmin(admin.ModelAdmin):
     actions = (send_activation_notifications,)
 
 
-admin.site.register(AdvUser, AdvUserAdmin)
-
-
 class SubRubricInline(admin.TabularInline):
     model = SubRubric
 
@@ -67,14 +64,8 @@ class SuperRubricAdmin(admin.ModelAdmin):
     inlines = (SubRubricInline,)
 
 
-admin.register(SuperRubric, SuperRubricAdmin)
-
-
 class SubRubricAdmin(admin.ModelAdmin):
     form = SubRubricForm
-
-
-admin.register(SubRubric, SubRubricAdmin)
 
 
 class AdditionalImageInline(admin.TabularInline):
@@ -82,10 +73,13 @@ class AdditionalImageInline(admin.TabularInline):
 
 
 class BbAdmin(admin.ModelAdmin):
-    list_display = ('rubric', 'title', 'context', 'author', 'created_at')
+    list_display = ('rubric', 'title', 'content', 'author', 'created_at')
     fields = (('rubric', 'author'), 'title', 'content', 'price',
               'contacts', 'image', 'is_active')
     inlines = (AdditionalImageInline,)
 
 
-admin.register(Bb, BbAdmin)
+admin.site.register(AdvUser, AdvUserAdmin)
+admin.site.register(SuperRubric, SuperRubricAdmin)
+admin.site.register(SubRubric, SubRubricAdmin)
+admin.site.register(Bb, BbAdmin)
